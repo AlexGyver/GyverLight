@@ -122,7 +122,7 @@ void loop() {
 
   if (effectTimer.isReady() && powerState) {
     switch (thisMode) {
-      case 0: light();
+      case 0: lighter();
         break;
       case 1: lightBugs();
         break;

@@ -1,9 +1,10 @@
-byte hue;
+#define TRACK_STEP 40
 
 // ****************************** ОГОНЁК ******************************
 int8_t position;
 boolean direction;
-void light() {
+
+void lighter() {
   FastLED.clear();
   if (direction) {
     position++;
@@ -16,7 +17,7 @@ void light() {
       direction = true;
     }
   }
-  leds[position] = 0xFFFFFF;
+  leds[position] = CRGB::White;
 }
 
 // ****************************** СВЕТЛЯЧКИ ******************************
@@ -55,8 +56,10 @@ void lightBugs() {
 }
 
 // ****************************** ЦВЕТА ******************************
+byte hue;
 void colors() {
   hue += 2;
+  CRGB thisColor = CHSV(hue, 255, 255);
   fillAll(CHSV(hue, 255, 255));
 }
 
@@ -68,8 +71,6 @@ void rainbow() {
 }
 
 // ****************************** КОНФЕТТИ ******************************
-#define TRACK_STEP 40
-
 void sparkles() {
   byte thisNum = random(0, NUM_LEDS);
   if (getPixColor(thisNum) == 0)
@@ -160,9 +161,9 @@ void fade() {
 }
 
 // залить все
-void fillAll(CRGB color) {
+void fillAll(CRGB newcolor) {
   for (int i = 0; i < NUM_LEDS; i++) {
-    leds[i] = color;
+    leds[i] = newcolor;
   }
 }
 
