@@ -40,6 +40,7 @@
 <a id="chapter-2"></a>
 ## Схемы
 ![SCHEME](https://github.com/AlexGyver/gyverlight/blob/master/schemes/scheme.jpg)
+![SCHEME](https://github.com/AlexGyver/gyverlight/blob/master/schemes/scheme2.jpg)
 
 <a id="chapter-3"></a>
 ## Материалы и компоненты
