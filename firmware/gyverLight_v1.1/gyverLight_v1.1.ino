@@ -113,11 +113,9 @@ void loop() {
     FastLED.setBrightness(brightness);
     FastLED.show();
   }
-  if (touch.isRelease()) {
-    if (wasStep) {
+  if (touch.isRelease() && wasStep) {
       wasStep = false;
       brightDirection = !brightDirection;
-    }
   }
 
   if (effectTimer.isReady() && powerState) {
@@ -153,27 +151,23 @@ void nextMode() {
 }
 
 void brightnessTick() {
-  if (powerActive) {
-    if (brightTimer.isReady()) {
-      if (powerDirection) {
-        powerState = true;
-        tempBrightness += 10;
-        if (tempBrightness > brightness) {
-          tempBrightness = brightness;
-          powerActive = false;
-        }
-        FastLED.setBrightness(tempBrightness);
-        FastLED.show();
-      } else {
-        tempBrightness -= 10;
-        if (tempBrightness < 0) {
-          tempBrightness = 0;
-          powerActive = false;
-          powerState = false;
-        }
-        FastLED.setBrightness(tempBrightness);
-        FastLED.show();
+  if (brightTimer.isReady() && powerActive) {
+    if (powerDirection) {
+      powerState = true;
+      tempBrightness += 10;
+      if (tempBrightness > brightness) {
+        tempBrightness = brightness;
+        powerActive = false;
+      }
+    } else {
+      tempBrightness -= 10;
+      if (tempBrightness < 0) {
+        tempBrightness = 0;
+        powerActive = false;
+        powerState = false;
       }
     }
+    FastLED.setBrightness(tempBrightness);
+    FastLED.show();
   }
 }
