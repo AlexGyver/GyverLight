@@ -97,7 +97,7 @@ void loop() {
         break;
       case 4: autoplay = !autoplay;
         break;
-      case 5:
+      default:
         break;
     }
   }
@@ -113,7 +113,7 @@ void loop() {
     FastLED.setBrightness(brightness);
     FastLED.show();
   }
-  if (touch.isRelease() && wasStep) {
+  if (wasStep && touch.isRelease()) {
       wasStep = false;
       brightDirection = !brightDirection;
   }
@@ -136,7 +136,7 @@ void loop() {
     FastLED.show();
   }
 
-  if (autoplayTimer.isReady() && autoplay) {    // таймер смены режима
+  if (autoplay && autoplayTimer.isReady()) {    // таймер смены режима
     nextMode();
   }
 
@@ -151,7 +151,7 @@ void nextMode() {
 }
 
 void brightnessTick() {
-  if (brightTimer.isReady() && powerActive) {
+  if (powerActive && brightTimer.isReady()) {
     if (powerDirection) {
       powerState = true;
       tempBrightness += 10;
