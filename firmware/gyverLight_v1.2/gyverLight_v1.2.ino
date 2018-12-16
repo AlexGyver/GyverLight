@@ -17,8 +17,8 @@
 */
 
 /*
- * Версия 1.2 - улучшена стабильность
- */
+   Версия 1.2 - улучшена стабильность
+*/
 
 // ************************** НАСТРОЙКИ ***********************
 #define CURRENT_LIMIT 2000  // лимит по току в миллиамперах, автоматически управляет яркостью (пожалей свой блок питания!) 0 - выключить лимит
@@ -111,16 +111,19 @@ void loop() {
   }
 
   if (touch.isStep()) {
-    wasStep = true;
-    if (brightDirection) {
-      brightness += 5;
-    } else {
-      brightness -= 5;
+    if (!powerActive) {
+      wasStep = true;
+      if (brightDirection) {
+        brightness += 5;
+      } else {
+        brightness -= 5;
+      }
+      brightness = constrain(brightness, MIN_BRIGHTNESS, 255);
+      FastLED.setBrightness(brightness);
+      FastLED.show();
     }
-    brightness = constrain(brightness, MIN_BRIGHTNESS, 255);
-    FastLED.setBrightness(brightness);
-    FastLED.show();
   }
+
   if (touch.isRelease()) {
     if (wasStep) {
       wasStep = false;
