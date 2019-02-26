@@ -1,8 +1,4 @@
 /*
-  Гайверова библиотеки надо обновить
-  - GyverButton - глючновата..
-  - GyverTimer - удобная штука
-  
   Управление
   - 1х тап - вкл/выкл
   - 2х тап - переключ режима
@@ -110,13 +106,13 @@ void updateEffect() {
       lightBugs();
       break;
     case 3:
+      sparkles();
+      break;      
+    case 4:
       colors();
       break;
-    case 4:
-      rainbow();
-      break;
     case 5:
-      sparkles();
+      rainbow();
       break;
     case 6:
       fire(0);
@@ -203,7 +199,7 @@ void holdedPress() {
   if (powerActive) {
     if (loopBrightnes.isReady()) updateBrightness(10);
   } else {
-    if (!powerDisAll) {
+    if (!powerDisAll && powerBlinkBrightness < 1) {
       powerDisAll = true;
 
       loopPower.stop();
