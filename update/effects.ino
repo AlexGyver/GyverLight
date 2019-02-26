@@ -3,10 +3,12 @@
 /* ЛАМПА */
 
 int posDrop;
+int upperBrightness; 
 void lampOn() {
   if (loadingFlag) {
     loadingFlag = false;
     posDrop = NUM_LEDS - 1;
+    upperBrightness = 0;
   }
   FastLED.clear();
   posDrop -= 3;
@@ -18,8 +20,14 @@ void lampOn() {
     leds[posDrop] = CRGB::White;
     leds[posDrop] %= 100;
   } else {
+    if (lightBrightness > upperBrightness) {
+      FastLED.setBrightness(upperBrightness);
+    } else {
+      FastLED.setBrightness(lightBrightness);
+      lampOk = true;
+    }
+    upperBrightness += 10;
     fillAll(CRGB::White);
-    lampOk = true;
   }
 }
 void fillAll(CRGB newcolor) {
@@ -146,10 +154,10 @@ void fire(byte pn) {
     loadingFlag = false;
     switch (pn) {
       case 1:
-        p = CRGBPalette16(CRGB::Black, CRGB::Blue, CRGB::Aqua, CRGB::White);
+        p = CRGBPalette16(CRGB::Black, CRGB::Green, CRGB::Yellow, CRGB::White);        
         break;
       case 2:
-        p = CRGBPalette16(CRGB::Black, CRGB::Red, CRGB::White);
+        p = CRGBPalette16(CRGB::Black, CRGB::Blue, CRGB::Aqua, CRGB::White);
         break;
       default:
         p = CRGBPalette16(CRGB::Black, CRGB::Red, CRGB::Yellow, CRGB::White);
