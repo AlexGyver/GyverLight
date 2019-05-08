@@ -1,4 +1,4 @@
-#define TRACK_STEP 40
+#define TRACK_STEP 50
 
 // ****************************** ОГОНЁК ******************************
 int16_t position;
@@ -30,14 +30,14 @@ CRGB bugColors[BUGS_AMOUNT];
 void lightBugs() {
   if (loadingFlag) {
     loadingFlag = false;
-    for (byte i = 0; i < BUGS_AMOUNT; i++) {
+    for (int i = 0; i < BUGS_AMOUNT; i++) {
       bugColors[i] = CHSV(random(0, 9) * 28, 255, 255);
       pos[i] = random(0, NUM_LEDS);
       speed[i] += random(-5, 6);
     }
   }
   FastLED.clear();
-  for (byte i = 0; i < BUGS_AMOUNT; i++) {
+  for (int i = 0; i < BUGS_AMOUNT; i++) {
     speed[i] += random(-5, 6);
     if (speed[i] == 0) speed[i] += (-5, 6);
 
@@ -66,7 +66,7 @@ void colors() {
 // ****************************** РАДУГА ******************************
 void rainbow() {
   hue += 2;
-  for (byte i = 0; i < NUM_LEDS; i++)
+  for (int i = 0; i < NUM_LEDS; i++)
     leds[i] = CHSV((byte)(hue + i * float(255 / NUM_LEDS)), 255, 255);
 }
 
@@ -127,35 +127,47 @@ void Fire2012WithPalette()
   }
 }
 
+// *************** ВИНИГРЕТ ***************
+void vinigret() {
+  for (int i = 0; i < NUM_LEDS; i++) {
+    if ((uint32_t)getPixColor(i) == 0) {
+      
+    }
+  }
+}
+
 // ****************** СЛУЖЕБНЫЕ ФУНКЦИИ *******************
 void fade() {
-  for (byte i = 0; i < NUM_LEDS; i++) {
-    // измеряяем цвет текущего пикселя
-    uint32_t thisColor = getPixColor(i);
+  for (int i = 0; i < NUM_LEDS; i++) {
+    if ((uint32_t)getPixColor(i) == 0) continue;
+    leds[i].fadeToBlackBy(TRACK_STEP);
 
-    // если 0, то пропускаем действия и переходим к следующему
-    if (thisColor == 0) continue;
+    /*// измеряяем цвет текущего пикселя
+      uint32_t thisColor = getPixColor(i);
 
-    // разбиваем цвет на составляющие RGB
-    byte rgb[3];
-    rgb[0] = (thisColor >> 16) & 0xff;
-    rgb[1] = (thisColor >> 8) & 0xff;
-    rgb[2] = thisColor & 0xff;
+      // если 0, то пропускаем действия и переходим к следующему
+      if (thisColor == 0) continue;
 
-    // ищем максимум
-    byte maximum = max(max(rgb[0], rgb[1]), rgb[2]);
-    float coef = 0;
+      // разбиваем цвет на составляющие RGB
+      byte rgb[3];
+      rgb[0] = (thisColor >> 16) & 0xff;
+      rgb[1] = (thisColor >> 8) & 0xff;
+      rgb[2] = thisColor & 0xff;
 
-    // если есть возможность уменьшить
-    if (maximum >= TRACK_STEP)
+      // ищем максимум
+      byte maximum = max(max(rgb[0], rgb[1]), rgb[2]);
+      float coef = 0;
+
+      // если есть возможность уменьшить
+      if (maximum >= TRACK_STEP)
       // уменьшаем и находим коэффициент уменьшения
       coef = (float)(maximum - TRACK_STEP) / maximum;
 
-    // далее все цвета умножаем на этот коэффициент
-    for (byte i = 0; i < 3; i++) {
+      // далее все цвета умножаем на этот коэффициент
+      for (int i = 0; i < 3; i++) {
       if (rgb[i] > 0) rgb[i] = (float)rgb[i] * coef;
       else rgb[i] = 0;
-    }
-    leds[i] = CRGB(rgb[0], rgb[1], rgb[2]);
+      }
+      leds[i] = CRGB(rgb[0], rgb[1], rgb[2]);*/
   }
 }

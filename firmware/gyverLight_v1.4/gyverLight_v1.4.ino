@@ -158,6 +158,8 @@ void loop() {
         break;
       case 5: fire();
         break;
+      case 6: vinigret();
+        break;
     }
     FastLED.show();
   }
