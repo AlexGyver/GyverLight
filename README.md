@@ -45,13 +45,13 @@
 <a id="chapter-3"></a>
 ## Материалы и компоненты
 ### Ссылки оставлены на магазины, с которых я закупаюсь уже не один год
-- Arduino NANO http://ali.ski/e6Fgi  http://ali.ski/4_s6VB
-- Сенсорный модуль http://ali.ski/anaje  http://ali.ski/sZnCo
-- Лента http://ali.ski/7JZPFu
-- Резисторы (220 R) http://ali.ski/Ony1Q7
-- БП 5 Вольт http://ali.ski/1t4zpW  http://ali.ski/mCNnFW
-- Ступенчатое сверло http://ali.ski/2pMIX
-- Проводочки http://ali.ski/Q7OF3  http://ali.ski/9xvYq
+- Arduino NANO https://ali.ski/U6jiM  https://ali.ski/pBv548
+- Сенсорный модуль https://ali.ski/xfXKp  https://ali.ski/3lFnJ
+- Лента https://ali.ski/s4BEI
+- Резисторы (220 R) https://ali.ski/xHnpc
+- БП 5 Вольт https://ali.ski/yMkj8  https://ali.ski/W6NXM
+- Ступенчатое сверло https://ali.ski/Tb_uB
+- Проводочки https://ali.ski/KPkF1  https://ali.ski/RMKes
 
 ## Вам скорее всего пригодится
 * [Всё для пайки (паяльники и примочки)](http://alexgyver.ru/all-for-soldering/)
