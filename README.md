@@ -43,16 +43,6 @@
 ![SCHEME](https://github.com/AlexGyver/gyverlight/blob/master/schemes/scheme2.jpg)
 
 <a id="chapter-3"></a>
-## Материалы и компоненты
-### Ссылки оставлены на магазины, с которых я закупаюсь уже не один год
-- Arduino NANO http://ali.ski/e6Fgi  http://ali.ski/4_s6VB
-- Сенсорный модуль http://ali.ski/anaje  http://ali.ski/sZnCo
-- Лента http://ali.ski/7JZPFu
-- Резисторы (220 R) http://ali.ski/Ony1Q7
-- БП 5 Вольт http://ali.ski/1t4zpW  http://ali.ski/mCNnFW
-- Ступенчатое сверло http://ali.ski/2pMIX
-- Проводочки http://ali.ski/Q7OF3  http://ali.ski/9xvYq
-
 ## Вам скорее всего пригодится
 * [Всё для пайки (паяльники и примочки)](http://alexgyver.ru/all-for-soldering/)
 * [Недорогие инструменты](http://alexgyver.ru/my_instruments/)
